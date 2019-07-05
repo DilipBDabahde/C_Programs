@@ -1,0 +1,42 @@
+/*
+Q3.Write a recursive program which accept array from user and return summation of all numbers
+Input : {31,2,3,12}
+Output : 48
+*/
+
+#include<stdio.h>
+
+int Sum(int arr[],int size)
+ {
+   static int isum=0;
+   
+   if(size>0)
+    {
+       size--;
+       isum+=arr[size];
+       Sum(arr,size);   
+    }
+    return isum; 
+ }
+ 
+ int main()
+  {
+    int ival=0;
+    
+    printf("Enter array size:");
+    scanf("%d",&ival);
+    
+    int arr[ival];    
+    
+    printf("Enter values for given array size\n");
+    for(int i=0;i<ival;i++)
+    {
+      printf("Enter Element:%d\n",i+1);
+      scanf("%d",&arr[i]);
+    }
+    
+    int iret=Sum(arr,ival);
+    printf("Sum of all array elements:%d\n",iret);
+    
+    return 0;
+  }
